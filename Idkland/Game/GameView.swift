@@ -35,10 +35,13 @@ struct GameView: View {
                             ActionBarView(store: self.store)
                         }
                         
-                        Text("😁")
-                            .position(self.position)
-                            .animation(.spring())
-                            .edgesIgnoringSafeArea(.all)
+                        if let myLightPlayer = viewStore.myLightPlayer {
+                            
+                            Text(myLightPlayer.asset)
+                                .position(myLightPlayer.zonePosition.getGlobalPosition())
+                                .animation(.spring())
+                                .edgesIgnoringSafeArea(.all)
+                        }
                         
                         if viewStore.showSettings {
                             SettingsView(store: self.store.scope(

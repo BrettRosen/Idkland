@@ -51,6 +51,7 @@ let gameReducer: Reducer<GameState, GameAction, GameEnvironment> = Reducer.combi
     Reducer { state, action, environment in
         switch action {
         case let .tappedZoneAt(row, col):
+            state.myLightPlayer?.zonePosition = ZonePosition(row: row, col: col)
             return .none
         case let .toggleSettings(on):
             state.showSettings = on

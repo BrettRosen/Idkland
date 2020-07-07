@@ -18,12 +18,14 @@ struct ZoneView: View {
     )
     
     var body: some View {
-        GridStack { row, col in
-            Button(action: {
-                
-            }) {
-                Text("\(self.zone.getAsset(at: row, col: col))")
-                    .font(.title)
+        WithViewStore(store) { viewStore in
+            GridStack { row, col in
+                Button(action: {
+                    viewStore.send(.tappedZoneAt(row: row, col: col))
+                }) {
+                    Text("\(self.zone.getAsset(at: row, col: col))")
+                        .font(.title)
+                }
             }
         }
     }

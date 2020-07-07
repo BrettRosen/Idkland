@@ -7,11 +7,6 @@
 
 import SwiftUI
 
-let screen = UIScreen.main.bounds
-
-let cellWidth = screen.width / 9
-let cellHeight = screen.height / 19.5
-
 struct GridStack<Content: View>: View {
     
     let rows: Int
