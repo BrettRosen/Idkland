@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>115441460268-4semuppjel96c4aa85rl4q6pot3341dd.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.115441460268-4semuppjel96c4aa85rl4q6pot3341dd</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDDuYDQj1FPG2Y4I4m37BEgEgj2tfrHYKE</string>
+	<key>GCM_SENDER_ID</key>
+	<string>115441460268</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>brettrosen.Idkland</string>
+	<key>PROJECT_ID</key>
+	<string>idkland-d8884</string>
+	<key>STORAGE_BUCKET</key>
+	<string>idkland-d8884.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:115441460268:ios:5a843cad3e31eecdac1d89</string>
+	<key>DATABASE_URL</key>
+	<string>https://idkland-d8884.firebaseio.com</string>
+</dict>
+</plist>

@@ -1,0 +1,6 @@
+framework module Pods_IdklandUITests {
+  umbrella header "Pods-IdklandUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
