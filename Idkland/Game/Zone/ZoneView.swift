@@ -21,10 +21,12 @@ struct ZoneView: View {
         WithViewStore(store) { viewStore in
             GridStack { row, col in
                 Button(action: {
-                    viewStore.send(.tappedZoneAt(row: row, col: col))
+                    withAnimation(.spring()) {
+                        viewStore.send(.tappedZoneAt(row: row, col: col))
+                    }
                 }) {
                     Text("\(self.zone.getAsset(at: row, col: col))")
-                        .font(.title)
+                        .font(.largeTitle)
                 }
             }
         }
@@ -33,6 +35,6 @@ struct ZoneView: View {
 
 struct ZoneView_Previews: PreviewProvider {
     static var previews: some View {
-        ZoneView(store: Store(initialState: GameState(), reducer: gameReducer, environment: GameEnvironment(client: .live)))
+        ZoneView(store: gameStoreMock)
     }
 }

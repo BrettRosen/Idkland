@@ -51,6 +51,10 @@
 		1FB5664224B3EB0B00ACFE81 /* GameClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB5664124B3EB0B00ACFE81 /* GameClient.swift */; };
 		1FB5664424B3EB4A00ACFE81 /* GameNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB5664324B3EB4A00ACFE81 /* GameNetworking.swift */; };
 		1FB5664624B5264300ACFE81 /* GridStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB5664524B5264300ACFE81 /* GridStack.swift */; };
+		1FB5664824B5532F00ACFE81 /* ZonePlayersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB5664724B5532E00ACFE81 /* ZonePlayersView.swift */; };
+		1FB5664A24B5552F00ACFE81 /* BasicBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB5664924B5552F00ACFE81 /* BasicBackgroundView.swift */; };
+		1FB5664C24B5567B00ACFE81 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB5664B24B5567A00ACFE81 /* PlayerView.swift */; };
+		1FB5664F24B5571C00ACFE81 /* PlayerCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB5664E24B5571C00ACFE81 /* PlayerCore.swift */; };
 		1FBE360B24B12418001AD16C /* Zone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBE360A24B12418001AD16C /* Zone.swift */; };
 		1FBE360D24B126D0001AD16C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1FBE360C24B126D0001AD16C /* GoogleService-Info.plist */; };
 		921FA445E119063CABD86A1D /* Pods_Idkland.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDD5679B2B0B1C366969C49F /* Pods_Idkland.framework */; };
@@ -126,6 +130,10 @@
 		1FB5664124B3EB0B00ACFE81 /* GameClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameClient.swift; sourceTree = "<group>"; };
 		1FB5664324B3EB4A00ACFE81 /* GameNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameNetworking.swift; sourceTree = "<group>"; };
 		1FB5664524B5264300ACFE81 /* GridStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridStack.swift; sourceTree = "<group>"; };
+		1FB5664724B5532E00ACFE81 /* ZonePlayersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZonePlayersView.swift; sourceTree = "<group>"; };
+		1FB5664924B5552F00ACFE81 /* BasicBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicBackgroundView.swift; sourceTree = "<group>"; };
+		1FB5664B24B5567A00ACFE81 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
+		1FB5664E24B5571C00ACFE81 /* PlayerCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCore.swift; sourceTree = "<group>"; };
 		1FBE360A24B12418001AD16C /* Zone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Zone.swift; sourceTree = "<group>"; };
 		1FBE360C24B126D0001AD16C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		35C34C5C9211C6656CCD88D1 /* Pods-IdklandUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IdklandUITests.release.xcconfig"; path = "Target Support Files/Pods-IdklandUITests/Pods-IdklandUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -252,6 +260,7 @@
 			children = (
 				1F7EE04724B2487F008FED58 /* ShakeDetectingView.swift */,
 				1F7EE02624B209CB008FED58 /* ValidatedTextField.swift */,
+				1FB5664924B5552F00ACFE81 /* BasicBackgroundView.swift */,
 				1F7EE03A24B22BBC008FED58 /* BasicButton.swift */,
 				1FB5663F24B3EAC600ACFE81 /* BasicLoadingView.swift */,
 				1FB5664524B5264300ACFE81 /* GridStack.swift */,
@@ -262,6 +271,7 @@
 		1F7EE01324B13279008FED58 /* Game */ = {
 			isa = PBXGroup;
 			children = (
+				1FB5664D24B5570B00ACFE81 /* Player */,
 				1FB5663A24B3E93000ACFE81 /* Zone */,
 				1F7EE00624B130F0008FED58 /* GameView.swift */,
 				1F7EE00C24B13138008FED58 /* GameCore.swift */,
@@ -363,8 +373,18 @@
 			isa = PBXGroup;
 			children = (
 				1FB5663B24B3E93D00ACFE81 /* ZoneView.swift */,
+				1FB5664724B5532E00ACFE81 /* ZonePlayersView.swift */,
 			);
 			path = Zone;
+			sourceTree = "<group>";
+		};
+		1FB5664D24B5570B00ACFE81 /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				1FB5664B24B5567A00ACFE81 /* PlayerView.swift */,
+				1FB5664E24B5571C00ACFE81 /* PlayerCore.swift */,
+			);
+			path = Player;
 			sourceTree = "<group>";
 		};
 		1FBE360924B12402001AD16C /* Models */ = {
@@ -642,6 +662,8 @@
 				1F7EE03724B22785008FED58 /* SignupView.swift in Sources */,
 				1F7EE03F24B23085008FED58 /* UIView+Extensions.swift in Sources */,
 				1F7EE04D24B26827008FED58 /* SettingsCore.swift in Sources */,
+				1FB5664A24B5552F00ACFE81 /* BasicBackgroundView.swift in Sources */,
+				1FB5664824B5532F00ACFE81 /* ZonePlayersView.swift in Sources */,
 				1F7EE03524B21A26008FED58 /* Global.swift in Sources */,
 				1F7EE02E24B21355008FED58 /* LoginClient.swift in Sources */,
 				1FB5664224B3EB0B00ACFE81 /* GameClient.swift in Sources */,
@@ -666,6 +688,8 @@
 				1F57B0D824B2B0A3006CDF75 /* ActionBarView.swift in Sources */,
 				1F7EE01F24B2035A008FED58 /* LoginView.swift in Sources */,
 				1F7EE01924B132CA008FED58 /* FirestoreNetworking.swift in Sources */,
+				1FB5664F24B5571C00ACFE81 /* PlayerCore.swift in Sources */,
+				1FB5664C24B5567B00ACFE81 /* PlayerView.swift in Sources */,
 				1F7EE04424B2376E008FED58 /* SignupNetworking.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

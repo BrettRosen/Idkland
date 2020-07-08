@@ -25,23 +25,14 @@ struct GameView: View {
                 switch viewStore.screen {
                 case .game:
                     ZStack {
-                        Colors.background.value.edgesIgnoringSafeArea(.all)
+                        BasicBackgroundView()
                         
-                        ZoneView(store: self.store)
-                            .blur(radius: viewStore.showSettings ? 5 : 0)
-
-                        VStack {
-                            Spacer()
+                        ZStack {
+                            ZoneView(store: self.store)
+                            ZonePlayersView(store: self.store)
                             ActionBarView(store: self.store)
                         }
-                        
-                        if let myLightPlayer = viewStore.myLightPlayer {
-                            
-                            Text(myLightPlayer.asset)
-                                .position(myLightPlayer.zonePosition.getGlobalPosition())
-                                .animation(.spring())
-                                .edgesIgnoringSafeArea(.all)
-                        }
+                        .blur(radius: viewStore.showSettings ? 5 : 0)
                         
                         if viewStore.showSettings {
                             SettingsView(store: self.store.scope(
@@ -61,6 +52,6 @@ struct GameView: View {
 
 struct GameView_Previews: PreviewProvider {
     static var previews: some View {
-        GameView(store: Store(initialState: GameState(), reducer: gameReducer, environment: GameEnvironment(client: .live)))
+        GameView(store: gameStoreMock)
     }
 }

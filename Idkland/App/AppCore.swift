@@ -74,6 +74,6 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = Reducer.combine(
     gameReducer.pullback(
         state: \.gameState,
         action: /AppAction.gameAction,
-        environment: { _ in GameEnvironment(client: .live) }
+        environment: { _ in GameEnvironment(client: .live, mainQueue: DispatchQueue.main.eraseToAnyScheduler()) }
     )
 )

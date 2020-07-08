@@ -36,8 +36,12 @@ enum GameAction {
     
     case getOrAddLightPlayerResult(Result<LightPlayer, NetworkingError>)
     case streamLightPlayersResult(Result<[LightPlayer], NetworkingError>)
+    case updateLightPlayerResult(Result<Success, NetworkingError>)
     
     case tappedZoneAt(row: Int, col: Int)
+    
+    case lightPlayerAt(index: Int, action: LightPlayerAction)
+    case lightPlayer(LightPlayerAction)
     
     case toggleSettings(on: Bool)
     case settingsAction(SettingsAction)
@@ -45,18 +49,23 @@ enum GameAction {
 
 struct GameEnvironment {
     var client: GameClient
+    var mainQueue: AnySchedulerOf<DispatchQueue>
 }
 
 let gameReducer: Reducer<GameState, GameAction, GameEnvironment> = Reducer.combine(
     Reducer { state, action, environment in
         switch action {
         case let .tappedZoneAt(row, col):
-            state.myLightPlayer?.zonePosition = ZonePosition(row: row, col: col)
-            return .none
+            guard let _ = state.myLightPlayer else { return .none }
+            state.myLightPlayer!.zonePosition = ZonePosition(row: row, col: col)
+
+            return environment.client
+                .updateLightPlayer(state.myLightPlayer!)
+                .catchToEffect()
+                .debounce(id: DebounceID(), for: 1.0, scheduler: environment.mainQueue)
+                .map(GameAction.updateLightPlayerResult)
         case let .toggleSettings(on):
             state.showSettings = on
-            return .none
-        case .settingsAction:
             return .none
         case .gameAppeared:
             state.isLoading = true
@@ -69,6 +78,8 @@ let gameReducer: Reducer<GameState, GameAction, GameEnvironment> = Reducer.combi
                 .getOrAddLightPlayer(user)
                 .catchToEffect()
                 .map(GameAction.getOrAddLightPlayerResult)
+        case .updateLightPlayerResult:
+            return .none
         case let .getOrAddLightPlayerResult(result):
             switch result {
             case let .success(lightPlayer):
@@ -90,11 +101,20 @@ let gameReducer: Reducer<GameState, GameAction, GameEnvironment> = Reducer.combi
             case .failure:
                 return .none
             }
+        case .settingsAction, .lightPlayer, .lightPlayerAt:
+            return .none
         }
     },
     settingsReducer.pullback(
         state: \.settingsState,
         action: /GameAction.settingsAction,
         environment: { _ in SettingsEnvironment(client: .live) }
+    ),
+    lightPlayerReducer.forEach(
+      state: \.lightPlayers,
+      action: /GameAction.lightPlayerAt(index:action:),
+      environment: { _ in LightPlayerEnvironment() }
     )
 )
+
+let gameStoreMock = Store(initialState: GameState(), reducer: gameReducer, environment: GameEnvironment(client: .live, mainQueue: .init(DispatchQueue.main.eraseToAnyScheduler())))

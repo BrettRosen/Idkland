@@ -20,7 +20,7 @@ struct SignupView: View {
         WithViewStore(store) { viewStore in
             ZStack(alignment: .top) {
                 
-                Colors.background.value.edgesIgnoringSafeArea(.all)
+                BasicBackgroundView()
                 
                 ScrollView(/*@START_MENU_TOKEN@*/.vertical/*@END_MENU_TOKEN@*/, showsIndicators: false) {
                     VStack {

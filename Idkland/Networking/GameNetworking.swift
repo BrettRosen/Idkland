@@ -20,7 +20,6 @@ extension FNetworking {
         lightPlayersListener = FNetworking.streamDocuments(collection: .lightPlayers, whereField: "zoneId", isEqualTo: zoneId, callback: callback)
     }
     
-    
     /// This function will check if a `LightPlayer` already exists for the user and return it if it does.
     /// If it does not, it will create that `LightPlayer`, add it to the database, and return it
     static func getOrAddLightPlayer(
@@ -45,7 +44,7 @@ extension FNetworking {
             case let .left(state):
                 switch state {
                 case .doesntExist:
-                    FNetworking.addDocumentWithId(collection: .lightPlayers, documentId: userId, encodable: lightPlayer, callback: { either in
+                    FNetworking.setDocumentWithId(collection: .lightPlayers, documentId: userId, encodable: lightPlayer, callback: { either in
                         switch either {
                         case .left:
                             callback(.left(lightPlayer))
@@ -62,12 +61,12 @@ extension FNetworking {
         }
     }
     
-    static func addLightPlayer(lightPlayer: LightPlayer, callback: @escaping (Either<Success, NetworkingError>) -> ()) {
+    static func setLightPlayer(_ lightPlayer: LightPlayer, callback: @escaping (Either<Success, NetworkingError>) -> ()) {
         guard let id = lightPlayer.id else {
             callback(.right(NetworkingError()))
             return
         }
-        return FNetworking.addDocumentWithId(collection: .lightPlayers, documentId: id, encodable: lightPlayer, callback: callback)
+        return FNetworking.setDocumentWithId(collection: .lightPlayers, documentId: id, encodable: lightPlayer, callback: callback)
     }
     
     static func checkLightPlayerExists(userId: String, callback: @escaping (Either<DocState<LightPlayer>, NetworkingError>) -> ()) {

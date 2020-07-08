@@ -13,6 +13,7 @@ struct GameClient {
     /// Input - `zoneID: String`
     var streamLightPlayers: (String) -> Effect<[LightPlayer], NetworkingError>
     var getOrAddLightPlayer: (User) -> Effect<LightPlayer, NetworkingError>
+    var updateLightPlayer: (LightPlayer) -> Effect<Success, NetworkingError>
 }
 
 extension GameClient {
@@ -39,5 +40,18 @@ extension GameClient {
                 }
             }
         }
+    }, updateLightPlayer: { lightPlayer in
+        Effect.future { callback in
+            FNetworking.setLightPlayer(lightPlayer) { either in
+                switch either {
+                case .left:
+                    callback(.success(Success()))
+                case let .right(error):
+                    callback(.failure(error))
+                }
+            }
+        }
     })
 }
+
+struct DebounceID: Hashable {}

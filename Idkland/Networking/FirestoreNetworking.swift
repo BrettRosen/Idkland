@@ -21,6 +21,11 @@ enum FirestoreCollection: String {
     case lightPlayers
 }
 
+enum DocState<D: Decodable> {
+    case exists(D)
+    case doesntExist
+}
+
 class FNetworking {
     static func streamDocuments<D: Decodable>(
         collection: FirestoreCollection,
@@ -41,11 +46,6 @@ class FNetworking {
                 }
                 callback(.left(data))
         }
-    }
-    
-    enum DocState<D: Decodable> {
-        case exists(D)
-        case doesntExist
     }
     
     static func checkDocExists<D: Decodable>(
@@ -102,7 +102,7 @@ class FNetworking {
         }
     }
     
-    static func addDocumentWithId<E: Encodable>(
+    static func setDocumentWithId<E: Encodable>(
         collection: FirestoreCollection,
         documentId: String,
         encodable: E,

@@ -18,7 +18,7 @@ struct LoginView: View {
     var body: some View {
         WithViewStore(store) { viewStore in
             ZStack(alignment: .top) {
-                Colors.background.value.edgesIgnoringSafeArea(.all)
+                BasicBackgroundView()
                 
                 VStack(spacing: 32) {
                     Text("🏖 Idkland")
