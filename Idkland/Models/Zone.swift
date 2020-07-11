@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import SwiftUI
 
 let screen = UIScreen.main.bounds
 
@@ -35,25 +36,33 @@ struct ZonePosition: Codable, Equatable {
     }
 }
 
-struct Zone: Codable {
+struct Zone: Codable, Equatable {
     var name: String
     var map: [Row]
     
     static var rows = 15
     static var columns = 9
     
-    func getAsset(at row: Int, col: Int) -> String {
-        map[row].cells[col].asset
+    func getTileColor(at row: Int, col: Int) -> Color {
+        map[row].tiles[col].color
+    }
+    
+    func getZoneObject(at row: Int, col: Int) -> ZoneObject? {
+        map[row].tiles[col].zoneObject
     }
 }
 
-struct Row: Codable, Identifiable {
+struct Row: Codable, Identifiable, Equatable {
     var id = UUID()
-    var cells: [Cell]
+    var tiles: [Tile]
 }
 
-struct Cell: Codable, Identifiable {
+struct Tile: Codable, Identifiable, Equatable {
     var id = UUID()
-    var asset: String
+    var hexColor: String
+    var zoneObject: ZoneObject?
+    
+    var color: Color {
+        Color(hex: self.hexColor)
+    }
 }
-

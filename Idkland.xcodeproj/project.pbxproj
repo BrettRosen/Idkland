@@ -13,6 +13,9 @@
 		1F10AC4F24B0EF05006D73DD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F10AC4E24B0EF05006D73DD /* Preview Assets.xcassets */; };
 		1F10AC5A24B0EF05006D73DD /* IdklandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F10AC5924B0EF05006D73DD /* IdklandTests.swift */; };
 		1F10AC6524B0EF06006D73DD /* IdklandUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F10AC6424B0EF06006D73DD /* IdklandUITests.swift */; };
+		1F50C36824B9468A00B3BFAD /* Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F50C36724B9468A00B3BFAD /* Component.swift */; };
+		1F50C36C24B948CC00B3BFAD /* ZoneObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F50C36B24B948CC00B3BFAD /* ZoneObject.swift */; };
+		1F50C37124B9574D00B3BFAD /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F50C37024B9574D00B3BFAD /* Color+Extensions.swift */; };
 		1F57B0D824B2B0A3006CDF75 /* ActionBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F57B0D724B2B0A3006CDF75 /* ActionBarView.swift */; };
 		1F57B0DA24B2B92C006CDF75 /* AppClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F57B0D924B2B92C006CDF75 /* AppClient.swift */; };
 		1F57B0DE24B2C6C3006CDF75 /* SettingsRowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F57B0DD24B2C6C3006CDF75 /* SettingsRowButton.swift */; };
@@ -57,6 +60,9 @@
 		1FB5664F24B5571C00ACFE81 /* PlayerCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB5664E24B5571C00ACFE81 /* PlayerCore.swift */; };
 		1FBE360B24B12418001AD16C /* Zone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBE360A24B12418001AD16C /* Zone.swift */; };
 		1FBE360D24B126D0001AD16C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1FBE360C24B126D0001AD16C /* GoogleService-Info.plist */; };
+		1FD735F724B96D8E00CAECFC /* SettingsHomeMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD735F624B96D8E00CAECFC /* SettingsHomeMenu.swift */; };
+		1FD735F924B96E5A00CAECFC /* SettingsMenuModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD735F824B96E5A00CAECFC /* SettingsMenuModifier.swift */; };
+		1FD735FB24B96FC800CAECFC /* SettingsMapEditorMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD735FA24B96FC800CAECFC /* SettingsMapEditorMenu.swift */; };
 		921FA445E119063CABD86A1D /* Pods_Idkland.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDD5679B2B0B1C366969C49F /* Pods_Idkland.framework */; };
 		A9CDFA7F67E863C4BCFBE6D2 /* Pods_IdklandUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76EB1418267E55EEC07E21FE /* Pods_IdklandUITests.framework */; };
 		CCC761A0D5718B8A29BF07CE /* Pods_IdklandTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07CBF2B439F2CA4793771BE8 /* Pods_IdklandTests.framework */; };
@@ -93,6 +99,9 @@
 		1F10AC6024B0EF06006D73DD /* IdklandUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IdklandUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F10AC6424B0EF06006D73DD /* IdklandUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdklandUITests.swift; sourceTree = "<group>"; };
 		1F10AC6624B0EF06006D73DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1F50C36724B9468A00B3BFAD /* Component.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Component.swift; sourceTree = "<group>"; };
+		1F50C36B24B948CC00B3BFAD /* ZoneObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoneObject.swift; sourceTree = "<group>"; };
+		1F50C37024B9574D00B3BFAD /* Color+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
 		1F57B0D724B2B0A3006CDF75 /* ActionBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionBarView.swift; sourceTree = "<group>"; };
 		1F57B0D924B2B92C006CDF75 /* AppClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppClient.swift; sourceTree = "<group>"; };
 		1F57B0DD24B2C6C3006CDF75 /* SettingsRowButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRowButton.swift; sourceTree = "<group>"; };
@@ -136,6 +145,9 @@
 		1FB5664E24B5571C00ACFE81 /* PlayerCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCore.swift; sourceTree = "<group>"; };
 		1FBE360A24B12418001AD16C /* Zone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Zone.swift; sourceTree = "<group>"; };
 		1FBE360C24B126D0001AD16C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1FD735F624B96D8E00CAECFC /* SettingsHomeMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsHomeMenu.swift; sourceTree = "<group>"; };
+		1FD735F824B96E5A00CAECFC /* SettingsMenuModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsMenuModifier.swift; sourceTree = "<group>"; };
+		1FD735FA24B96FC800CAECFC /* SettingsMapEditorMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsMapEditorMenu.swift; sourceTree = "<group>"; };
 		35C34C5C9211C6656CCD88D1 /* Pods-IdklandUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IdklandUITests.release.xcconfig"; path = "Target Support Files/Pods-IdklandUITests/Pods-IdklandUITests.release.xcconfig"; sourceTree = "<group>"; };
 		5321BD0BC2B5BF69E05F49B2 /* Pods-IdklandUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IdklandUITests.debug.xcconfig"; path = "Target Support Files/Pods-IdklandUITests/Pods-IdklandUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		5728F3CEDA5638989F06E0BB /* Pods-Idkland.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Idkland.release.xcconfig"; path = "Target Support Files/Pods-Idkland/Pods-Idkland.release.xcconfig"; sourceTree = "<group>"; };
@@ -354,6 +366,7 @@
 				1F7EE03C24B2303E008FED58 /* View+Extensions.swift */,
 				1F7EE03E24B23085008FED58 /* UIView+Extensions.swift */,
 				1F7EE04124B23498008FED58 /* String+Extensions.swift */,
+				1F50C37024B9574D00B3BFAD /* Color+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -362,9 +375,12 @@
 			isa = PBXGroup;
 			children = (
 				1F7EE04924B2665D008FED58 /* SettingsView.swift */,
+				1FD735F624B96D8E00CAECFC /* SettingsHomeMenu.swift */,
+				1FD735FA24B96FC800CAECFC /* SettingsMapEditorMenu.swift */,
 				1F7EE04C24B26827008FED58 /* SettingsCore.swift */,
 				1F7EE04E24B2695A008FED58 /* SettingsClient.swift */,
 				1F57B0DD24B2C6C3006CDF75 /* SettingsRowButton.swift */,
+				1FD735F824B96E5A00CAECFC /* SettingsMenuModifier.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -390,6 +406,8 @@
 		1FBE360924B12402001AD16C /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				1F50C36724B9468A00B3BFAD /* Component.swift */,
+				1F50C36B24B948CC00B3BFAD /* ZoneObject.swift */,
 				1F7EE03424B21A26008FED58 /* Global.swift */,
 				1F7EE01A24B1331F008FED58 /* User.swift */,
 				1FBE360A24B12418001AD16C /* Zone.swift */,
@@ -658,18 +676,23 @@
 				1FB5663924B3E76A00ACFE81 /* LightPlayer.swift in Sources */,
 				1F10AC4824B0EF03006D73DD /* IdklandApp.swift in Sources */,
 				1F7EE04624B23980008FED58 /* SignupClient.swift in Sources */,
+				1FD735FB24B96FC800CAECFC /* SettingsMapEditorMenu.swift in Sources */,
 				1F7EE02A24B20A47008FED58 /* Colors.swift in Sources */,
 				1F7EE03724B22785008FED58 /* SignupView.swift in Sources */,
 				1F7EE03F24B23085008FED58 /* UIView+Extensions.swift in Sources */,
 				1F7EE04D24B26827008FED58 /* SettingsCore.swift in Sources */,
 				1FB5664A24B5552F00ACFE81 /* BasicBackgroundView.swift in Sources */,
+				1FD735F724B96D8E00CAECFC /* SettingsHomeMenu.swift in Sources */,
 				1FB5664824B5532F00ACFE81 /* ZonePlayersView.swift in Sources */,
 				1F7EE03524B21A26008FED58 /* Global.swift in Sources */,
 				1F7EE02E24B21355008FED58 /* LoginClient.swift in Sources */,
+				1F50C36824B9468A00B3BFAD /* Component.swift in Sources */,
+				1FD735F924B96E5A00CAECFC /* SettingsMenuModifier.swift in Sources */,
 				1FB5664224B3EB0B00ACFE81 /* GameClient.swift in Sources */,
 				1F7EE03D24B2303E008FED58 /* View+Extensions.swift in Sources */,
 				1F7EE00724B130F0008FED58 /* GameView.swift in Sources */,
 				1F57B0DE24B2C6C3006CDF75 /* SettingsRowButton.swift in Sources */,
+				1F50C36C24B948CC00B3BFAD /* ZoneObject.swift in Sources */,
 				1F7EE00D24B13138008FED58 /* GameCore.swift in Sources */,
 				1F7EE01B24B1331F008FED58 /* User.swift in Sources */,
 				1F7EE02524B20398008FED58 /* AppCore.swift in Sources */,
@@ -680,6 +703,7 @@
 				1F7EE03324B2182B008FED58 /* LoginNetworking.swift in Sources */,
 				1F7EE01224B13259008FED58 /* MapEditorView.swift in Sources */,
 				1FB5664624B5264300ACFE81 /* GridStack.swift in Sources */,
+				1F50C37124B9574D00B3BFAD /* Color+Extensions.swift in Sources */,
 				1F7EE03924B22AD0008FED58 /* SignupCore.swift in Sources */,
 				1F7EE02724B209CB008FED58 /* ValidatedTextField.swift in Sources */,
 				1FBE360B24B12418001AD16C /* Zone.swift in Sources */,

@@ -14,19 +14,23 @@ struct ZoneView: View {
     
     let zone = Zone(
         name: "Test Zone",
-        map: Array.init(repeating: Row(cells: Array.init(repeating: Cell(asset: "🏢"), count: Zone.columns)), count: Zone.rows)
+        map: Array.init(repeating: Row(tiles: Array.init(repeating: Tile(hexColor: "32CD32", zoneObject: .mock ), count: Zone.columns)), count: Zone.rows)
     )
     
     var body: some View {
         WithViewStore(store) { viewStore in
             GridStack { row, col in
                 Button(action: {
-                    withAnimation(.spring()) {
-                        viewStore.send(.tappedZoneAt(row: row, col: col))
-                    }
+                    viewStore.send(.tappedZoneAt(row: row, col: col))
                 }) {
-                    Text("\(self.zone.getAsset(at: row, col: col))")
-                        .font(.largeTitle)
+                    Rectangle()
+                        .frame(width: cellWidth, height: cellHeight)
+                        .foregroundColor(zone.getTileColor(at: row, col: col))
+                        .overlay(
+                            Text(zone.getZoneObject(at: row, col: col)?.asset ?? "")
+                                .font(.largeTitle)
+                                .shadow(color: Color.black.opacity(0.15), radius: 5, x: 0, y: 0)
+                        )
                 }
             }
         }

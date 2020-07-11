@@ -8,8 +8,14 @@
 import ComposableArchitecture
 import Foundation
 
+enum SettingsScreen {
+    case home
+    case mapEditor
+}
+
 struct SettingsState: Equatable {
     var showSettings = false
+    var settingsScreen: SettingsScreen = .home
     var screen: GameScreen = .game
 }
 
@@ -30,7 +36,7 @@ let settingsReducer: Reducer<SettingsState, SettingsAction, SettingsEnvironment>
     Reducer { state, action, environment in
         switch action {
         case .mapEditorTapped:
-            state.screen = .mapEditor
+            state.settingsScreen = .mapEditor
             return .none
         case .backgroundTapped:
             state.showSettings = false

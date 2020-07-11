@@ -22,27 +22,16 @@ struct SettingsView: View {
                         }
                     }
                 
-                VStack {
-                    if let user = Global.user, user.isAdmin() {
-                        
-                        SettingsRowButton(title: "Map editor") {
-                            viewStore.send(.mapEditorTapped)
-                        }
-                        
-                        Divider()
-                    }
-                    
-                    SettingsRowButton(title: "Log out") {
-                        viewStore.send(.logoutTapped)
-                    }
+                switch viewStore.settingsScreen {
+                case .home:
+                    SettingsHomeMenu(store: self.store)
+                        .modifier(SettingsMenuModifier())
+                        .transition(.opacity)
+                case .mapEditor:
+                    SettingsMapEditorMenu(store: self.store)
+                        .modifier(SettingsMenuModifier())
+                        .transition(.opacity)
                 }
-                .padding()
-                .background(
-                    RoundedRectangle(cornerRadius: 16)
-                        .foregroundColor(Colors.accent.value)
-                )
-                .padding()
-                .shadow(color: Color.black.opacity(0.15), radius: 15, x: 0, y: 15)
             }
         }
     }

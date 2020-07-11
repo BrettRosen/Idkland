@@ -17,15 +17,19 @@ struct GameState: Equatable {
     var screen: GameScreen = .game
     var isLoading = true
     
+    var zone: Zone?
+    
     var myLightPlayer: LightPlayer?
     var lightPlayers = [LightPlayer]()
     
     var showSettings = false
+    var settingsScreen: SettingsScreen = .home
     var settingsState: SettingsState {
         get {
-            SettingsState(showSettings: showSettings, screen: screen)
+            SettingsState(showSettings: showSettings, settingsScreen: settingsScreen, screen: screen)
         } set {
             self.showSettings = newValue.showSettings
+            self.settingsScreen = newValue.settingsScreen
             self.screen = newValue.screen
         }
     }
@@ -39,7 +43,8 @@ enum GameAction {
     case updateLightPlayerResult(Result<Success, NetworkingError>)
     
     case tappedZoneAt(row: Int, col: Int)
-    
+
+    // Hooks to other Store actions
     case lightPlayerAt(index: Int, action: LightPlayerAction)
     case lightPlayer(LightPlayerAction)
     
@@ -57,6 +62,23 @@ let gameReducer: Reducer<GameState, GameAction, GameEnvironment> = Reducer.combi
         switch action {
         case let .tappedZoneAt(row, col):
             guard let _ = state.myLightPlayer else { return .none }
+            
+            /*
+             let object = state.currentZone.getObject(at: row, col)
+             let components = object.components
+             // DialogComponent
+             // ZoneTransferComponent
+             
+             for component in components {
+                switch component {
+                case let .dialog(text):
+                    state.dialogText = text
+                case let .zoneTransfer():
+                    
+                }
+             }
+             */
+            
             state.myLightPlayer!.zonePosition = ZonePosition(row: row, col: col)
 
             return environment.client
@@ -65,6 +87,7 @@ let gameReducer: Reducer<GameState, GameAction, GameEnvironment> = Reducer.combi
                 .debounce(id: DebounceID(), for: 1.0, scheduler: environment.mainQueue)
                 .map(GameAction.updateLightPlayerResult)
         case let .toggleSettings(on):
+            if on { state.settingsScreen = .home }
             state.showSettings = on
             return .none
         case .gameAppeared:

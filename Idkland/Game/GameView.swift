@@ -43,7 +43,7 @@ struct GameView: View {
                         }
                     }
                 case .mapEditor:
-                    MapEditorView(position: $position)
+                    MapEditorView()
                 }
             }
         }

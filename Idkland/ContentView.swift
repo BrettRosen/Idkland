@@ -10,7 +10,7 @@ import SwiftUI
 // Aspect Ratio 19.5 : 9
     
 let zone = Array.init(
-    repeating: Row(cells: Array.init(repeating: Cell(asset: "🏢"), count: Zone.columns)),
+    repeating: Row(tiles: Array.init(repeating: Tile(hexColor: "32CD32", zoneObject: .mock), count: Zone.columns)),
     count: Zone.rows
 )
 
@@ -35,10 +35,14 @@ struct ContentView: View {
             VStack(spacing: 1) {
                 ForEach(zone) { row in
                     HStack(spacing: 1) {
-                        ForEach(row.cells) { cell in
-                            Text(cell.asset)
-                                .font(.largeTitle)
+                        ForEach(row.tiles) { cell in
+                            Rectangle()
                                 .frame(width: cellWidth, height: cellHeight)
+                                .foregroundColor(cell.color)
+                                .overlay(
+                                    Text(cell.zoneObject?.asset ?? "")
+                                        .font(.largeTitle)
+                                )
                         }
                     }
                 }
